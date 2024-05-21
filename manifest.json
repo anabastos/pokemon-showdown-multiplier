@@ -1,0 +1,29 @@
+{
+  "name": "Pokemon Showdown Multiplier",
+  "version": "1.0.0",
+  "description": "Get attack and defense multipliers for your current pokemon / enemy's current pokemon",
+  "manifest_version": 3,
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "persistent": false
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Pokemon Multiplier"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [do oyu h
+        "content.js"
+      ]
+    }
+  ],
+  "author": "Ana Luiza Portello Bastos"
+}
