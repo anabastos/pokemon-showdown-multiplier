@@ -18,12 +18,35 @@ chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
 
 function updatePokemonData(pokemons) {
   const { opponent, trainer } = pokemons || {};
-  const contentDiv = document.getElementById('content');
+  const contentDiv = document.getElementById('container');
   if (opponent && trainer) {
     contentDiv.innerHTML = `
-                <h1>Battle Info</h1>
-                <p>Opponent's Pokémon: ${opponent}</p>
-                <p>Trainer Pokémon: ${trainer}</p>
+                <div>
+                  <h1>Opponent's ${opponent}</h1>
+                  <ul id="multiplierList">
+                    <li>
+                      <bold class="attack">Attack:</bold>
+                      testtesttestejsdhakjhdskjahdkjsah
+                    </li>
+                    <li>
+                      <bold class="defense">Defense:</bold>
+                      testtesttestejsdhakjhdskjahdkjsah
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h1>Trainer ${trainer}</h1>
+                  <ul id="multiplierList">
+                    <li>
+                      <bold class="attack">Attack:</bold>test
+                      testtesttestejsdhakjhdskjahdkjsah
+                    </li>
+                    <li>
+                      <bold class="defense">Defense:</bold>test
+                      testtesttestejsdhakjhdskjahdkjsah
+                    </li>
+                  </ul>
+                </div>
             `;
   } else {
     contentDiv.innerHTML = `<p>No Pokémon data available.</p>`;
