@@ -8,8 +8,7 @@
     "storage"
   ],
   "background": {
-    "service_worker": "background.js",
-    "persistent": false
+    "service_worker": "background.js"
   },
   "action": {
     "default_popup": "popup.html",
@@ -20,7 +19,7 @@
       "matches": [
         "<all_urls>"
       ],
-      "js": [do oyu h
+      "js": [
         "content.js"
       ]
     }
