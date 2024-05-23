@@ -18,10 +18,32 @@ function extractLastPokemon(regex) {
   return lastMatch;
 }
 
-// Listens to message to extractText
+function savePokemonResponse(response) {
+  if (response.error) {
+    console.log(response);
+    chrome.storage.local.set(response);
+    return response.error;
+  } else {
+    console.log(response);
+    chrome.storage.local.set(response);
+    return response;
+  }
+}
+
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === "checkPokemons") {
     const pokemons = extractMatches();
-    chrome.storage.local.set({ pokemons });
+
+    console.log(pokemons);
+    const opponentPokemonData = chrome.runtime.sendMessage({
+      action: 'fetchPokemon',
+      pokemonName: pokemons.opponent,
+      pokemonOwner: "opponent"
+    }, savePokemonResponse);
+    const trainerPokemonData = chrome.runtime.sendMessage({
+      action: 'fetchPokemon',
+      pokemonName: pokemons.trainer,
+      pokemonOwner: "trainer"
+    }, savePokemonResponse);
   }
 });
